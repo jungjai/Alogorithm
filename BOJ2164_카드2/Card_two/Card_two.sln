@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Card_two", "Card_two\Card_two.vcxproj", "{CC610F25-A954-4AD4-8298-174F57E09C2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Debug|x64.ActiveCfg = Debug|x64
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Debug|x64.Build.0 = Debug|x64
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Debug|x86.ActiveCfg = Debug|Win32
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Debug|x86.Build.0 = Debug|Win32
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Release|x64.ActiveCfg = Release|x64
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Release|x64.Build.0 = Release|x64
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Release|x86.ActiveCfg = Release|Win32
+		{CC610F25-A954-4AD4-8298-174F57E09C2C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D80DA88-6927-4F9D-86DB-03B6B0386F6A}
+	EndGlobalSection
+EndGlobal
