@@ -1,2 +1,4 @@
 # Alogorithm
-jungjai's 알고리즘
+Language : C/ C++
+
+https://www.acmicpc.net/user/jeongjae22
