@@ -3,7 +3,7 @@
 
 #pragma warning (disable : 4996)
 
-int N, M, chic = 0, house[50][50], min= 2147483647;
+int N, M, chic = 0, house[50][50], min= 2e9;
 
 
 int chicken(int di[][50][15], int ch, int start);
@@ -18,7 +18,7 @@ int main()
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			scanf("%d", &house[i][j]);
-			dis[i][j][0] = 2147483647;
+			dis[i][j][0] = 2e9;
 		}
 	}
 
