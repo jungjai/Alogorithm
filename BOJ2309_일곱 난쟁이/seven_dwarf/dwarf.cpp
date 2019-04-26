@@ -30,7 +30,9 @@ int main()
 
 	for (i = 0; i < 8; i++)
 		for (j = i + 1; j < 9; j++)
-			if ((sum - su[i] - su[j]) == 100) dwarf_p(i, j, su);
+			if ((sum - su[i] - su[j]) == 100) {
+				dwarf_p(i, j, su); return 0;
+			}
 }
 
 void dwarf_p(int p, int q, int dw[])
