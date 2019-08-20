@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<string.h>
-#pragma warning(disable : 4996)
 
 char str[100001];
 
