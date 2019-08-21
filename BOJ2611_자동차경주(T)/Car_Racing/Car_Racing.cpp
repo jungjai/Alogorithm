@@ -1,49 +1,65 @@
-#include<stdio.h>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+using namespace std;
 
-#pragma warning (disable : 4996)
+int n;
+int dp[1002], road[1002];
+vector<pair<int, int>> graph[1002];
 
-int n, m, route[10000][3];
-int max = 0, R[1001];
-
-void find(int p, int score, int check, int *ro);
+int go(int);
+void solve();
 
 int main()
 {
-	//freopen("input.txt", "r", stdin);
+	int m;
+	int i, from, to, weight;
 
-	int ro[1001];
+	scanf("%d %d", &n, &m);
 
-	scanf("%d", &n);
-	scanf("%d", &m);
-	for (int i = 0; i < m; i++)
-		scanf("%d %d %d", &route[i][0], &route[i][1], &route[i][2]);
-	ro[0] = 1;
-	find(1, 0, 1, ro);
+	for (i = 0; i < m; i++) {
+		scanf("%d %d %d", &from, &to, &weight);
 
-	printf("%d\n", max);
-	for (int i = 0; i < n; i++) printf("%d ", R[i]);
+		if (to == 1)    to = n + 1;
+		graph[from].push_back(make_pair(to, weight));
+	}
+
+	solve();
+
 	return 0;
 }
 
-void find(int p, int score, int check, int *ro) {
-	int r[1001];
+int go(int idx)
+{
+	int i, weight;
 
-	for (int i = 0; i < check; i++)
-		r[i] = ro[i];
-	for (int i = 0; i < m; i++) {
-		if (route[i][0] == p) {
-			if (route[i][1] == 1) {
-				if (max < (score + route[i][2])) {
-					max = score + route[i][2];
-					for (int i = 0; i < check; i++) R[i] = r[i];
-					R[check] = 1;
-				}
-			}
-			else {
-				r[check] = route[i][1];
-				check++;
-				find(route[i][1], score+route[i][2], check, r);
-			}
+	if (dp[idx] != -1)    return dp[idx];
+	dp[idx] = 0;
+
+	for (i = 0; i < graph[idx].size(); i++) {
+		weight = go(graph[idx][i].first) + graph[idx][i].second;
+
+		if (dp[idx] < weight) {
+			dp[idx] = weight;
+			road[idx] = graph[idx][i].first;
 		}
 	}
+
+	return dp[idx];
+}
+
+void solve()
+{
+	int r = 1;
+
+	memset(dp, -1, sizeof(dp));
+	dp[n + 1] = 0;
+
+	printf("%d\n", go(1));
+
+	while (r <= n) {
+		printf("%d ", r);
+		r = road[r];
+	}
+	printf("1\n");
 }
