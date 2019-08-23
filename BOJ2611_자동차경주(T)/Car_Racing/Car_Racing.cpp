@@ -8,9 +8,17 @@ int dp[1002], road[1002];
 vector<pair<int, int>> graph[1002];
 
 int go(int);
+void input();
 void solve();
 
 int main()
+{
+	input();
+	solve();
+	return 0;
+}
+
+void input()
 {
 	int m;
 	int i, from, to, weight;
@@ -23,10 +31,6 @@ int main()
 		if (to == 1)    to = n + 1;
 		graph[from].push_back(make_pair(to, weight));
 	}
-
-	solve();
-
-	return 0;
 }
 
 int go(int idx)
