@@ -1,62 +1,40 @@
 #include<stdio.h>
 
-#pragma warning (disable : 4996)
-
-int su, num;
-int check[501][501];
-int compare[250][2];
-
-void CompareL(int n, int p);
-void CompareM(int n, int p);
+int map[501][501];
+int ans;
 
 int main()
 {
-	freopen("input.txt", "r", stdin);
+	int N, M;
+	scanf("%d %d", &N, &M);
 
-	int student = 0;
-
-	scanf("%d %d", &su, &num);
-
-	for (int i = 0; i < num; i++)
-		scanf("%d %d", &compare[i][0], &compare[i][1]);
-
-	for (int i = 1; i <= su; i++)
-		for (int j = 1; j <= su; j++)
-			check[i][j] = 0;
-
-	for (int i = 0; i < num; i++) {
-		check[compare[i][0]][compare[i][1]] = 1;
-		CompareL(compare[i][0], compare[i][1]);
-		check[compare[i][1]][compare[i][0]] = 1;
-		CompareM(compare[i][1], compare[i][0]);
+	int x, y;
+	for (int i = 1; i <= M; i++)
+	{
+		scanf("%d %d", &x, &y);
+		map[x][y] = 1;
 	}
+	for (int k = 1; k <= N; k++)
+		for (int i = 1; i <= N; i++)
+			for (int j = 1; j <= N; j++)
+			{
+				if (i == j || j == k || i == k) continue;
+				if (map[i][k] && map[k][j])
+					map[i][j] = 1;
+			}
+	for (int i = 1; i <= N; i++)
+	{
+		int cnt = 0;
+		for (int j = 1; j <= N; j++)
+		{
+			if (i == j) continue;
 
-	for (int i = 1; i <= su; i++) {
-		int k = 0;
-		for (int j = 1; j <= su; j++)
-			k += check[i][j];
-		if (k == su - 1) student++;
-	}
-	
-	printf("%d\n", student);
-}
-
-void CompareL(int n, int p)
-{
-	for (int i = 0; i < num; i++) {
-		if (p == compare[i][0]) {
-			check[n][compare[i][1]] = 1;
-			CompareL(n, compare[i][1]);
+			if (map[i][j] || map[j][i])
+				cnt++;
 		}
+		if (cnt >= N - 1)
+			ans++;
 	}
-}
-
-void CompareM(int n, int p)
-{
-	for (int i = 0; i < num; i++) {
-		if (p == compare[i][1]) {
-			check[n][compare[i][0]] = 1;
-			CompareM(n, compare[i][0]);
-		}
-	}
+	printf("%d", ans);
+	return 0;
 }
