@@ -16,4 +16,8 @@ int main()
 	for (int i = 0; i < su; i++)
 		scanf("%d", can[i]);	
 		
+
+	int lock, max, len;
+
+	return 0;
 }
